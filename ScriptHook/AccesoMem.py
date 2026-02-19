@@ -12,7 +12,7 @@ def init(oo_vv, dir_base = 0, v = int(1e3)):
 # PROBADOR
 try:
     #gestiona close
-    with open('oo_vv.json', 'r') as f: oo_vv = load(f)
+    with open('obj/oo_vv.json', 'r') as f: oo_vv = load(f)
 
 except Exception as e: print(f'e: {e}') # NO especifico. 4 casos
 
