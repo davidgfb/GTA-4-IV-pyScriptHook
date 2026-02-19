@@ -1,3 +1,2 @@
-1º make clean<br>
-2º make<br>
-3º Acceso Mem<br>
+1º rebuild<br>
+2º Acceso Mem<br>
