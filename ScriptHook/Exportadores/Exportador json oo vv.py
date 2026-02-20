@@ -1,3 +1,4 @@
+from pathlib import Path
 from json import dump
 
 BLIPLIST, OBJECTPOOL, PEDPOOL, VEHICLEPOOL =['ADDRESS_'+o for o in (
@@ -69,11 +70,14 @@ def init(dir_base = 0, v = int(1e3)):
 
 # PROBADOR
 # gestiona close automatico
-NOMBRE_JSON = 'oo_vv.json'
-with open(NOMBRE_JSON, 'w') as f:\
+DIRECTORIO_JSON = Path('../obj/oo_vv.json')
+
+DIRECTORIO_JSON.parent.mkdir(parents = True, exist_ok =True)
+
+with open(DIRECTORIO_JSON, 'w') as f:\
      dump({f'{v}': init(v=v)for v in sorted(vv.keys())},f,indent=4)
 
-print(f'{NOMBRE_JSON} exportado con éxito.')
+print(f'{DIRECTORIO_JSON} exportado con éxito.')
     
 # quito hex(dir_base), hex(val) para exportar a JSON
 #[print(f'oo_db_{dir_base}_v{v}: {{\n'+'\n'.join(f'\t{o}: {val},'for o,val in init(dir_base,v).items())+'\n},',end=' ')for v in sorted(vv.keys()) for dir_base in (0,)]#range(0x1000000,0x1000000+1)]
