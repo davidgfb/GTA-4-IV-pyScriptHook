@@ -5,5 +5,12 @@ ms_file_version,ls_file_version=[
     GetFileVersionInfo('E:/Grand Theft Auto IV/GTAIV.exe',"\\")[e]
     for e in([PLAN % e for e in ('M','L')]
 )]
+vv = [str(f(v)) for v in (
+    ms_file_version,
+    ls_file_version
+) for f in (
+    HIWORD,
+    LOWORD
+)]
 
-print(f'{HIWORD(ms_file_version)}.{LOWORD(ms_file_version)}.{HIWORD(ls_file_version)}.{LOWORD(ls_file_version)}')
+print(".".join(vv), '->', "".join(vv)) 
