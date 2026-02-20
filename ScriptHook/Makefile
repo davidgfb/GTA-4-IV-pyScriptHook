@@ -1,7 +1,8 @@
 clean: @if exist obj rmdir /s /q obj
 
-make: py "Exportador json oo vv"
+all: 
+  @if not exist obj mkdir obj
+  @if not exist obj\vv.json cd Exportadores && py "Exportador vv json.py"
+  @if not exist obj\oo_vv.json cd Exportadores && py "Exportador json oo vv.py"
 
-rebuild: 
-  clean
-  make
+rebuild: clean all
