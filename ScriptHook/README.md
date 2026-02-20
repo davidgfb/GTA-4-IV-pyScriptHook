@@ -1,2 +1,1 @@
-1º make rebuild<br>
-2º make run<br>
+make o make rebuild para limpiar<br>
