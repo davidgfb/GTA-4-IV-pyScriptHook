@@ -14,10 +14,15 @@ vv_num = [f(v) for v in (
 )]
 major, minor, patch, build = vv_num
 
-vv_str = list(map(str, vv_num))
+vv_familia_str = list(map(str, (major, minor, patch, 0)))
 
-hash_v = int.from_bytes(vv_num, 'big')
+vv_build_str = list(map(str, vv_num))
 
-print(f'{".".join(vv_str)} -> {"".join(vv_str)}\n\
-s/ build: {hex(hash_v & 0xFFFFFF00)} (\
-c/ build: {hex(hash_v)})') # ID_hash_v
+familia = int.from_bytes((major, minor, patch), 'big') << 8
+
+hex_fam = hex(familia)
+
+print(f'familia: {".".join(vv_familia_str)} -> {"".join(vv_familia_str)} \
+(c/ build: {".".join(vv_build_str)} -> {"".join(vv_build_str)})\n\
+familia: {hex_fam} (c/ build: {hex_fam} + {hex(build)} = \
+{hex(familia | build)})') # ID_hash_v
