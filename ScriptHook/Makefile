@@ -6,3 +6,7 @@ all:
   @if not exist obj\oo_vv.json cd Exportadores && py "Exportador json oo vv.py"
 
 rebuild: clean all
+
+run: 
+  py enums.py
+  py "Acceso Mem.py"
