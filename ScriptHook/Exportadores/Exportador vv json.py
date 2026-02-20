@@ -1,3 +1,4 @@
+from pathlib import Path
 from json import dump
 
 # GTAIV.exe (WinAPI GetFileVersionInfo, hash_a_v
@@ -16,10 +17,13 @@ vv = {
 }
 
 # PROBADOR
-NOMBRE_JSON = 'vv.json'
-with open(NOMBRE_JSON, 'w') as f:\
+DIRECTORIO_JSON = Path('../obj/vv.json')
+
+DIRECTORIO_JSON.parent.mkdir(parents = True, exist_ok =True)
+
+with open(DIRECTORIO_JSON, 'w') as f:\
      dump({v: h for v, h in vv.items()}, f, indent=4)
 
-print(f'{NOMBRE_JSON} exportado con éxito.')
+print(f'{DIRECTORIO_JSON} exportado con éxito.')
 
 #[print({v: hex(h)}) for v, h in vv.items()]
