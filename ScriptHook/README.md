@@ -1,3 +1,2 @@
 1º make rebuild<br>
-2º enums<br>
-3º Acceso Mem<br>
+2º make run<br>
